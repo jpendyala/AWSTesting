@@ -6,6 +6,6 @@ Resources:
       DBInstanceIdentifier: pendyala-inst
       DBName: pendyaladb
       Engine: MySQL
-      Version: Version1
+      EngineVersion: 5.7
       MasterUsername: pendyalauser
       MasterPassword: pendyalauser1
