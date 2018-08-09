@@ -1,7 +1,7 @@
 Resources:
   JKFirstRDSInstance:
     Type: AWS::RDS::DBInstance
-    Properties
+    Properties:
       AllocatedStorage: 8
       DBInstanceIdentifier: pendyala-inst
       DBName: pendyaladb
