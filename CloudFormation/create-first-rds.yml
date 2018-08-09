@@ -4,7 +4,7 @@ Resources:
     Properties:
       AllocatedStorage: 8
       DBInstanceIdentifier: pendyala-inst
-      DBInstanceClass: db.t1.micro
+      DBInstanceClass: db.m1
       DBName: pendyaladb
       Engine: MySQL
       EngineVersion: 5.7
