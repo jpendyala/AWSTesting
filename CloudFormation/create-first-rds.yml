@@ -1,0 +1,11 @@
+Resources:
+  JKFirstRDSInstance:
+    Type: AWS::RDS::DBInstance
+    Properties
+      AllocatedStorage: 8
+      DBInstanceIdentifier: pendyala-inst
+      DBName: pendyaladb
+      Engine: MySQL
+      Version: Version1
+      MasterUsername: pendyalauser
+      MasterPassword: pendyalauser1
