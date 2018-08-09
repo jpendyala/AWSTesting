@@ -8,4 +8,4 @@ Resources:
       Engine: MySQL
       EngineVersion: 5.7
       MasterUsername: pendyalauser
-      MasterPassword: pendyalauser1
+      MasterUserPassword: pendyalauser1
