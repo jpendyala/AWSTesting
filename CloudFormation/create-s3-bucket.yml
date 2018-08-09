@@ -1,0 +1,6 @@
+Resources:
+  JKFirst-S3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: Private
+        BucketName: JKPendyala1991Bucket
