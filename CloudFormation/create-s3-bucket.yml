@@ -4,3 +4,11 @@ Resources:
     Properties:
       AccessControl: Private
       BucketName: jkpendyala1991bucket
+      Tags:
+        - 
+         Key: "Name"
+         Value: "S3CloudFormationTesting"
+        - 
+         Key: "Component"
+         Value: "Pendyala-Component"
+
