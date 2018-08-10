@@ -13,5 +13,5 @@ Resources:
          Value: "Pendyala-Component"
       BucketEncryption:
         ServerSideEncryptionConfiguration:
-          -ServerSideEncryptionByDefault:
-             SSEAlgorithm: aws:kms
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
