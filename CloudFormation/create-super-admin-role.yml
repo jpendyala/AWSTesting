@@ -24,3 +24,10 @@ Resources:
                 Effect: "Allow"
                 Action: "*"
                 Resource: "*"
+  RootInstanceProfile: 
+    Type: "AWS::IAM::InstanceProfile"
+    Properties: 
+      Path: "/"
+      Roles: 
+        - 
+          Ref: "RootRole"
