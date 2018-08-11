@@ -1,0 +1,26 @@
+AWSTemplateFormatVersion: "2018-08-10"
+Resources: 
+  RootRole:
+    Type: "AWS::IAM::Role"
+    Properties: 
+      AssumeRolePolicyDocument: 
+        Version: "2018-08-01"
+        Statement: 
+          -
+            Effect: "Allow"
+            Principal: 
+            Service: 
+              - "ec2-amazonaws.com"
+            Action: 
+              - "sts:AssumeRole"
+      Path: "/"
+      Policies:
+        - 
+          PolicyName: "rootadmin"
+          PolicyDocument: 
+            Version: "2012-10-17"
+            Statement: 
+              -
+                Effect: "Allow"
+                Action: "*"
+                Resource: "*"
