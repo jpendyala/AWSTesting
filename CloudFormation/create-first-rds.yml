@@ -11,4 +11,4 @@ Resources:
       MasterUsername: pendyalauser
       MasterUserPassword: pendyalauser1
       DBSecurityGroups:
-         - sg-0bc91df3dc4a6c8b9s
+         - sg-0bc91df3dc4a6c8b9
