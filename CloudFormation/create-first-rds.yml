@@ -10,3 +10,5 @@ Resources:
       EngineVersion: 5.7
       MasterUsername: pendyalauser
       MasterUserPassword: pendyalauser1
+       VPCSecurityGroups:
+         - MyRDS-SG
