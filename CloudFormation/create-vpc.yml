@@ -13,3 +13,9 @@ Resources:
 #      CidrBlock: 10.0.0.0/16
 #      VpcId: vpc-036dd04db74375617
       VpcId: !Ref JKFirstCFVPC
+  JKFirstCFSubNet:
+    Type: AWS::EC2::Subnet
+    Properties: 
+#      AssignIpv6AddressOnCreation: false
+      CidrBlock: 10.0.0.0/16
+      VpcId: !Ref JKFirstCFVPC
