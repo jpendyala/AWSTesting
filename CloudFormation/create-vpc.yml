@@ -1,0 +1,15 @@
+Resources:
+  JKFirstCFVPC:
+    Type: AWS::EC2::VPC
+    Properties: 
+      CidrBlock: 10.0.0.0/16
+      Tags: 
+        - "Key" : Name
+          "Value": mycftemplatevpc
+  VpcCidrBlockIpv6:
+    Type: AWS::EC2::VPCCidrBlock
+    Properties: 
+      AmazonProvidedIpv6CidrBlock: true
+#      CidrBlock: 10.0.0.0/16
+#      VpcId: vpc-036dd04db74375617
+      VpcId: !Ref JKFirstCFVPC
