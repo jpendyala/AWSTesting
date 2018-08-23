@@ -1,6 +1,17 @@
 Resources:
-  JKFirst-S3Bucket:
+  JKFirstS3Bucket:
     Type: AWS::S3::Bucket
     Properties:
       AccessControl: Private
-        BucketName: JKPendyala1991Bucket
+      BucketName: jkpendyala1991bucket
+      Tags:
+        - 
+         Key: "Name"
+         Value: "S3CloudFormationTesting"
+        - 
+         Key: "Component"
+         Value: "Pendyala-Component"
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
