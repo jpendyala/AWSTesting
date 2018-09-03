@@ -12,7 +12,7 @@ Parameters:
     Default: sg-0879fc0d794e7b3cf
   AMIId:
     Type: String
-    Default: ami-04681a1dbd79675a5
+    Default: ami-0863663aed0bc1607
   InstanceType:
     Type: String
     Default: t2.micro
