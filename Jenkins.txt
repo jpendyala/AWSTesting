@@ -1,3 +1,6 @@
-Jenkins URL: http://54.227.114.124:8080/
-UserName: jpendyala
+Jenkins URL: http://54.226.250.172:8080/
+
+http://54.226.250.172:8080/
+
+UserName: jkpendyala
 Password: kistanna91

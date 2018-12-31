@@ -3,7 +3,7 @@ Resources:
     Type: AWS::S3::Bucket
     Properties:
       AccessControl: Private
-      BucketName: jkpendyala1991bucket
+      BucketName: jkpendyala1992bucket
       Tags:
         - 
          Key: "Name"
