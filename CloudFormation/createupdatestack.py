@@ -25,7 +25,8 @@ def mystack_create(stack_name, bucket_name):
 
     response = cf_client.create_stack(
         StackName=stack_name,
-        TemplateURL='https://s3.amazonaws.com/' + bucket_name + '/' + stack_name + '.yml'
+        TemplateURL='https://s3.amazonaws.com/' + bucket_name + '/' + stack_name + '.yml',
+        OnFailure='ROLLBACK'
     )
     print (response)
 
@@ -48,7 +49,7 @@ if __name__== "__main__":
     PARSED_ARGS = parse_arguments()
     #region_name = PARSED_ARGS.region_name
     cf_client = boto3.client('cloudformation', region_name='us-east-1')
-    s3_client = boto3.client('s3', region_name='us-east-1')
+    #s3_client = boto3.client('s3', region_name='us-east-1')
     main(PARSED_ARGS)
 
 # python createupdatestack.py --region_name 'us-east-1' --stack_name create-s3-bucket --url 'https://s3.amazonaws.com/my-jpendyala-bucket/create-s3-bucket.yml'
