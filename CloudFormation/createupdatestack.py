@@ -11,7 +11,8 @@ import argparse
 
 
 def cp_cf_template(stack_name, bucket_name):
-    template_file = stack_name + '.yml'
+
+    template_file = 'AWSTesting/CloudFormation' + stack_name + '.yml'
     key = template_file
     response = s3_client.put_object(Body=template_file,
                                     Bucket=bucket_name,
