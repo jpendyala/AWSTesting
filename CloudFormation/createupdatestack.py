@@ -13,9 +13,10 @@ import argparse
 def cp_cf_template(stack_name, bucket_name):
 
     template_file = '/var/lib/jenkins/workspace/create-update-stack-job/AWSTesting' + stack_name + '.yml'
-    file_contents = template_file.readlines()
-    key = template_file
-    response = s3_client.put_object(Body=file_contents,
+    with open('template_file') as f:
+        lines = f.readlines()
+    key = stack_name
+    response = s3_client.put_object(Body=lines,
                                     Bucket=bucket_name,
                                     Key=key)
 
