@@ -15,7 +15,7 @@ def mystack_create(stack_name, url):
 
     response = cf_client.create_stack(
         StackName=stack_name,
-        TemplateURL=url
+        TemplateURL='https://s3.amazonaws.com/my-jpendyala-bucket/' + stack_name
     )
     print (response)
 
@@ -23,13 +23,13 @@ def mystack_create(stack_name, url):
 def parse_arguments():
     parser = argparse.ArgumentParser()
     parser.add_argument('--stack_name')
-    parser.add_argument('--url')
+    #parser.add_argument('--url')
     args = parser.parse_args()
     return args
 
 
 def main(args):
-    crt_stack = mystack_create(args.stack_name, args.url)
+    crt_stack = mystack_create(args.stack_name)
 
 
 if __name__== "__main__":
