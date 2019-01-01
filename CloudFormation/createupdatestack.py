@@ -16,15 +16,9 @@ pp = pprint
 
 def cp_cf_template(stack_name, bucket_name):
 
-    template_file = '/var/lib/jenkins/workspace/create-update-stack-job/AWSTesting/CloudFormation/' + stack_name + '.yml'
-    with open(template_file, 'r') as f:
-        doc = yaml.load(f)
+    s3 = boto3.resource('s3', region_name = 'us-east-1')
+    s3.meta.client.upload_file('/var/lib/jenkins/workspace/create-update-stack-job/AWSTesting/CloudFormation/' + stack_name + '.yml' , bucket_name, stack_name)
 
-    pp.pprint(doc)
-    key = stack_name
-    response = s3_client.put_object(Body=doc,
-                                    Bucket=bucket_name,
-                                    Key=key)
 
 
 def mystack_create(stack_name, bucket_name):
