@@ -17,7 +17,7 @@ Resources:
     Type: AWS::RDS::DBSubnetGroup
     Properties: 
       DBSubnetGroupDescription: My_RDS_Subnet_Group
-      DBSubnetGroupName: my-rds-subnet-group
+      DBSubnetGroupName: jaya-rds-subnet-group
       SubnetIds:
         - subnet-067b11fd634ad013d
         - subnet-067b11fd634ad013d
