@@ -26,7 +26,7 @@ def mystack_create(stack_name, bucket_name):
     response = cf_client.create_stack(
         StackName=stack_name,
         TemplateURL='https://s3.amazonaws.com/' + bucket_name + '/' + stack_name + '.yml',
-        OnFailure='ROLLBACK'
+        OnFailure='DELETE'
     )
     print (response)
 
