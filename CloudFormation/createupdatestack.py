@@ -16,13 +16,12 @@ def cp_cf_template(stack_name, bucket_name):
                                     Bucket=bucket_name)
 
 
-
-def mystack_create(stack_name):
+def mystack_create(stack_name, bucket_name):
     #client = boto3.client('cloudformation', region_name=region)
 
     response = cf_client.create_stack(
         StackName=stack_name,
-        TemplateURL='https://s3.amazonaws.com/my-jpendyala-bucket/' + stack_name + '.yml'
+        TemplateURL='https://s3.amazonaws.com/' + bucket_name + stack_name + '.yml'
     )
     print (response)
 
@@ -30,15 +29,15 @@ def mystack_create(stack_name):
 def parse_arguments():
     parser = argparse.ArgumentParser()
     parser.add_argument('--stack_name')
+    parser.add_argument('--bucket_name')
     #parser.add_argument('--url')
     args = parser.parse_args()
     return args
 
 
 def main(args):
-    cp_cftemplate = cp_cf_template(args.stack_name)
-    crt_stack = mystack_create(args.stack_name)
-
+    cp_cftemplate = cp_cf_template(args.stack_name, args.bucket_name)
+    crt_stack = mystack_create(args.stack_name, args.bucket_name)
 
 
 if __name__== "__main__":
