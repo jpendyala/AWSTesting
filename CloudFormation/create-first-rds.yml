@@ -3,12 +3,12 @@ Resources:
     Type: AWS::RDS::DBInstance
     Properties:
       AllocatedStorage: 8
-      DBInstanceIdentifier: pendyala-inst
+      DBInstanceIdentifier: pendyala-instance
       DBInstanceClass: db.t2.small
-      DBName: pendyaladb
+      DBName: pendyaladba
       Engine: MySQL
       EngineVersion: 5.7
-      MasterUsername: pendyalauser
+      MasterUsername: pendyalauser1
       MasterUserPassword: pendyalauser1
       VPCSecurityGroups:
          - sg-0c462d0a69b3ada9b
