@@ -2,6 +2,9 @@
 import boto3
 import argparse
 import yaml
+import pprint
+
+pp = pprint
 
 # client = boto3.client('cloudformation', region_name='us-east-1')
 # response = client.create_stack(
