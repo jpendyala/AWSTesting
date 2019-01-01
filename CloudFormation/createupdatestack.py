@@ -10,12 +10,12 @@ import argparse
 # print (response)
 
 
-def mystack_create(stack_name, url):
+def mystack_create(stack_name):
     #client = boto3.client('cloudformation', region_name=region)
 
     response = cf_client.create_stack(
         StackName=stack_name,
-        TemplateURL='https://s3.amazonaws.com/my-jpendyala-bucket/' + stack_name
+        TemplateURL='https://s3.amazonaws.com/my-jpendyala-bucket/' + stack_name + '.yml'
     )
     print (response)
 
