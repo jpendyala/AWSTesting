@@ -16,6 +16,8 @@ def cp_cf_template(stack_name, bucket_name):
     template_file = '/var/lib/jenkins/workspace/create-update-stack-job/AWSTesting/CloudFormation/' + stack_name + '.yml'
     with open(template_file, 'r') as f:
         doc = yaml.load(f)
+
+    pp.pprint(doc)
     key = stack_name
     response = s3_client.put_object(Body=doc,
                                     Bucket=bucket_name,
