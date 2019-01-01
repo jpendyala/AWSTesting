@@ -1,6 +1,7 @@
 #!/usr/bin/python
 import boto3
 import argparse
+import yaml
 
 # client = boto3.client('cloudformation', region_name='us-east-1')
 # response = client.create_stack(
@@ -13,10 +14,10 @@ import argparse
 def cp_cf_template(stack_name, bucket_name):
 
     template_file = '/var/lib/jenkins/workspace/create-update-stack-job/AWSTesting/CloudFormation/' + stack_name + '.yml'
-    with open(template_file) as f:
-        lines = f.readlines()
+    with open(template_file, 'r') as f:
+        doc = yaml.load(f)
     key = stack_name
-    response = s3_client.put_object(Body=lines,
+    response = s3_client.put_object(Body=doc,
                                     Bucket=bucket_name,
                                     Key=key)
 
@@ -56,3 +57,7 @@ if __name__== "__main__":
 
 
 
+#
+# import yaml
+# with open('config.yaml', 'r') as f:
+#     doc = yaml.load(f)
