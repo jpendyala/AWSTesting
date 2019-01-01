@@ -20,4 +20,4 @@ Resources:
       DBSubnetGroupName: jaya-rds-subnet-group
       SubnetIds:
         - subnet-067b11fd634ad013d
-        - subnet-067b11fd634ad013d
+        - subnet-0c0b74680887d2054
