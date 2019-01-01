@@ -6,10 +6,18 @@ Resources:
       DBInstanceIdentifier: pendyala-instance
       DBInstanceClass: db.t2.small
       DBName: pendyaladba
-      DBSubnetGroupName: jaya-db-subnet-group
+      DBSubnetGroupName: !Ref MySubnetGroup
       Engine: MySQL
       EngineVersion: 5.7
       MasterUsername: pendyalauser1
       MasterUserPassword: pendyalauser1
       VPCSecurityGroups:
          - sg-0c462d0a69b3ada9b
+  MySubnetGroup:       
+    Type: AWS::RDS::DBSubnetGroup
+    Properties: 
+      DBSubnetGroupDescription: My_RDS_Subnet_Group
+      DBSubnetGroupName: my-rds-subnet-group
+      SubnetIds:
+        - subnet-067b11fd634ad013d
+        - subnet-067b11fd634ad013d
