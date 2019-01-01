@@ -11,8 +11,9 @@ import argparse
 
 
 def mystack_create(region_name, stack_name, url):
-    client = boto3.client('cloudformation', region_name=region_name)
-    response = client.create_stack(
+    #client = boto3.client('cloudformation', region_name=region_name)
+
+    response = cf_client.create_stack(
         StackName=stack_name,
         TemplateURL=url
     )
@@ -34,6 +35,8 @@ def main(args):
 
 if __name__== "__main__":
     PARSED_ARGS = parse_arguments()
+    region_name = PARSED_ARGS.region_name
+    cf_client = boto3.client('cloudformation', region_name=region_name)
     main(PARSED_ARGS)
 
 # python createupdatestack.py --region_name 'us-east-1' --stack_name create-s3-bucket --url 'https://s3.amazonaws.com/my-jpendyala-bucket/create-s3-bucket.yml'
