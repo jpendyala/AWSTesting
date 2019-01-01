@@ -11,4 +11,4 @@ Resources:
       MasterUsername: pendyalauser
       MasterUserPassword: pendyalauser1
       VPCSecurityGroups:
-         - sg-02cf93ba045df29b0
+         - sg-0c462d0a69b3ada9b
