@@ -6,6 +6,7 @@ Resources:
       DBInstanceIdentifier: pendyala-instance
       DBInstanceClass: db.t2.small
       DBName: pendyaladba
+      DBSubnetGroupName: subnet-067b11fd634ad013d
       Engine: MySQL
       EngineVersion: 5.7
       MasterUsername: pendyalauser1
