@@ -22,7 +22,6 @@ def cp_cf_template(stack_name, bucket_name):
 
 
 def mystack_create(stack_name, bucket_name):
-    #client = boto3.client('cloudformation', region_name=region)
 
     response = cf_client.create_stack(
         StackName=stack_name,
