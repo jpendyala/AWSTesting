@@ -1,0 +1,23 @@
+Resources:
+  JKFirstRDSInstance:
+    Type: AWS::RDS::DBInstance
+    Properties:
+      AllocatedStorage: 20
+      DBInstanceIdentifier: pendyala-instance-post-gres
+      DBInstanceClass: db.t2.micro
+      DBName: jaya-postgres-pendyala
+      DBSubnetGroupName: !Ref MySubnetGroup
+      Engine: PostgreSQL
+      EngineVersion: 10.4
+      MasterUsername: pendyalauser1
+      MasterUserPassword: pendyalauser1
+      VPCSecurityGroups:
+         - sg-0c462d0a69b3ada9b
+  MySubnetGroup:       
+    Type: AWS::RDS::DBSubnetGroup
+    Properties: 
+      DBSubnetGroupDescription: My_RDS_Subnet_Group
+      DBSubnetGroupName: jaya-rds-subnet-group
+      SubnetIds:
+        - subnet-067b11fd634ad013d
+        - subnet-0c0b74680887d2054
