@@ -1,0 +1,19 @@
+Resources:
+  MyFirstEC2InVPC:
+    Type: AWS::EC2::Instance
+    Properties: 
+      AvailabilityZone: us-east-1a
+      InstanceType: t2.micro
+      ImageId: ami-0080e4c5bc078760e
+      KeyName: moline
+#      NetworkInterfaces: 
+#        - AssociatePublicIpAddress: "true"
+#          DeviceIndex: "0"
+      SecurityGroupIds: 
+        - sg-0c462d0a69b3ada9b
+      SubnetId: subnet-067b11fd634ad013d
+      UserData: 
+         Fn::Base64: 
+            #!/bin/bash
+            sudo su
+            yum -y install mysql
