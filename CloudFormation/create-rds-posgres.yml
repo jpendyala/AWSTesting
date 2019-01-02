@@ -5,7 +5,7 @@ Resources:
       AllocatedStorage: 20
       DBInstanceIdentifier: pendyala-instance-post-gres
       DBInstanceClass: db.t2.micro
-      DBName: jaya-postgres-pendyala
+      DBName: JayaPendyalaPostGres
       DBSubnetGroupName: !Ref MySubnetGroup
       Engine: postgres
       EngineVersion: 10.4
