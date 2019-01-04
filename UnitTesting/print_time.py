@@ -5,9 +5,9 @@ from __future__ import absolute_import, division, print_function
 import time
 
 # using time() to display time since epoch
-print ("Current Time is : ", end="")
 
 
 for x in range(6):
-    print( time.strftime('%X %x %Z') )
+    print("Current Time is : ", end="")
+    print(time.strftime('%X %x %Z'))
     time.sleep(1)
