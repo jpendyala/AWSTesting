@@ -46,6 +46,7 @@ for k,v in resp_obj.items():
             print("DBInstanceClass is : ", end="")
 
         #   code to print individually
+
         #   print(resp_obj['DBInstances'][0]['DBInstanceClass'])
         #   print("DBInstanceIdentifier is : ", end="")
         #   print(resp_obj['DBInstances'][0]['DBInstanceIdentifier'])
@@ -53,36 +54,3 @@ for k,v in resp_obj.items():
         #   print(resp_obj['DBInstances'][0]['DBInstanceStatus'])
         #   print("DBName is : ", end="")
         #   print(resp_obj['DBInstances'][0]['DBName'])
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
