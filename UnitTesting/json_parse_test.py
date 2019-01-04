@@ -43,7 +43,6 @@ for k,v in resp_obj.items():
         for k1 in resp_obj['DBInstances'][0]:
             print(k1, " : ", end="")
             print(resp_obj['DBInstances'][0][k1])
-            print("DBInstanceClass is : ", end="")
 
         #   code to print individually
 
