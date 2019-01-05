@@ -16,4 +16,4 @@ Resources:
          Fn::Base64: 
             #!/bin/bash
             sudo su
-            yum -y install mysql            
+            yum -y install mysql
