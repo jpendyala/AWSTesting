@@ -40,7 +40,7 @@ class RDSSnapTest:
         subnet_grp = str(random_string_class.create_rds_subnet_grp())
 
 
-        engine_type = ['postgres', 'mysql', 'oracle-se']
+        engine_type = ['postgres', 'mysql']
 
 
         for e_type in engine_type:
