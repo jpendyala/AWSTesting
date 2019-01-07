@@ -3,6 +3,9 @@ import boto3
 from moto import mock_rds2
 import pprint
 
+import random, string
+
+
 pp = pprint
 
 rdsclient = boto3.client('rds', region_name='us-east-1')
@@ -11,67 +14,50 @@ rdsclient = boto3.client('rds', region_name='us-east-1')
 
 class RDSSnapTest:
 
-    def __init__(self, instance_name):
-        self.instance_name = instance_name
 
-    def crt_rds_inst_postgres(self):
-
-        response = rdsclient.create_db_instance(
-            DBName='rampandu',
-            DBInstanceIdentifier=self.instance_name,
-            AllocatedStorage=8,
-            DBInstanceClass='db.t2.small',
-            Engine='postgres',
-            MasterUsername='jkpendyala',
-            MasterUserPassword='iyyalna'
-        )
-
-        return response
+    def gen_random_string(self):
+        letters = string.ascii_lowercase
+        rampandu = ''.join(random.choice(letters) for i in range(6))
+        return rampandu
 
 
-    def crt_rds_inst_mysql(self):
+    def crt_rds_inst(self):
 
-        response_rds = rdsclient.create_db_instance(
-            DBName='pochalu',
-            DBInstanceIdentifier=self.instance_name,
-            AllocatedStorage=8,
-            DBInstanceClass='db.t2.small',
-            Engine='mysql',
-            MasterUsername='tiger',
-            MasterUserPassword='pulibabu1'
-        )
-
-        return response_rds
+        random_string_class = RDSSnapTest()
 
 
-    def crt_rds_inst_oracle(self):
-
-        response_rds = rdsclient.create_db_instance(
-            DBName='pochalu-oracle',
-            DBInstanceIdentifier=self.instance_name,
-            AllocatedStorage=8,
-            DBInstanceClass='db.t2.small',
-            Engine='oracle-se',
-            MasterUsername='tiger',
-            MasterUserPassword='pulibabu1'
-        )
-
-        return response_rds
+        engine_type = ['postgres', 'mysql', 'oracle-se']
 
 
 
-    def chk_instance(self):
-        desc_response = rdsclient.describe_db_instances(DBInstanceIdentifier=self.instance_name)
-        return desc_response
+        for e_type in engine_type:
 
-    def method_test(self):
-        print ('this is a test in super class for instance: '+self.instance_name)
+
+            e_type_len = len(e_type)
+            counter = 1
+            while counter < e_type_len:
+                random_string = random_string_class.gen_random_string()
+                print("random string:", random_string)
+
+
+                try:
+
+                    rdsclient.create_db_instance(
+                        DBName='rampandu',
+                        DBInstanceIdentifier=random_string + str(counter),
+                        AllocatedStorage=8,
+                        DBInstanceClass='db.t2.small',
+                        Engine=e_type,
+                        MasterUsername='jkpendyala',
+                        MasterUserPassword='iyyalna',
+                        PubliclyAccessible=True
+
+                    )
+
+                except Exception as e:
+                    print("Exception:", e)
 
 
 
 
-runcrt = RDSSnapTest('akrux')
-pp.pprint(runcrt.crt_rds_inst_mysql())
-pp.pprint(runcrt.crt_rds_inst_postgres())
-pp.pprint(runcrt.crt_rds_inst_oracle())
-
+                counter = counter + 1
