@@ -37,7 +37,15 @@ class RDSSnapTest:
             counter = 1
             while counter < e_type_len:
                 random_string = random_string_class.gen_random_string()
-                print("random string:", random_string)
+               # print("random string:", random_string)
+
+                if counter % 2 == 0:
+                    public_access = True
+                    multi_az = False
+
+                else:
+                    public_access = False
+                    multi_az = True
 
 
                 try:
@@ -50,14 +58,13 @@ class RDSSnapTest:
                         Engine=e_type,
                         MasterUsername='jkpendyala',
                         MasterUserPassword='iyyalna',
-                        PubliclyAccessible=True
+                        PubliclyAccessible=public_access,
+                        MultiAZ=multi_az
 
                     )
 
                 except Exception as e:
                     print("Exception:", e)
-
-
 
 
                 counter = counter + 1

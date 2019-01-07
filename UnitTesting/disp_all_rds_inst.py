@@ -20,8 +20,7 @@ class RDSDisplayInstances(object):
 
 
 
-samakka = RDSDisplayInstances()
-
-pp.pprint(samakka.disp_all_instances())
-
-
+# samakka = RDSDisplayInstances()
+#
+# pp.pprint(samakka.disp_all_instances())
+# mallakka = samakka.disp_all_instances()
