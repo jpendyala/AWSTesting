@@ -2,6 +2,7 @@ import moto
 import boto3
 from moto import mock_rds2
 import pprint
+from create_subnet_test import *
 
 import random, string
 
@@ -21,13 +22,25 @@ class RDSSnapTest:
         return rampandu
 
 
+    def create_rds_subnet_grp(self):
+        mock = Create_Subnet_Test()
+        (mysubnet1, mysubnet2) = mock.create_ec2_subnet()
+        dbsubnet = rdsclient.create_db_subnet_group(
+            DBSubnetGroupName='MyDBSubnetGroup',
+            DBSubnetGroupDescription='MyDBSubnetGroup',
+            SubnetIds=[mysubnet1, mysubnet2]
+        )
+        dbsubnet_grp_name = dbsubnet['DBSubnetGroup']['DBSubnetGroupName']
+        return dbsubnet_grp_name
+
+
     def crt_rds_inst(self):
 
         random_string_class = RDSSnapTest()
+        subnet_grp = str(random_string_class.create_rds_subnet_grp())
 
 
         engine_type = ['postgres', 'mysql', 'oracle-se']
-
 
 
         for e_type in engine_type:
@@ -41,7 +54,7 @@ class RDSSnapTest:
 
                 if counter % 2 == 0:
                     public_access = True
-                    multi_az = False
+                    multi_az = True
 
                 else:
                     public_access = False
@@ -59,7 +72,8 @@ class RDSSnapTest:
                         MasterUsername='jkpendyala',
                         MasterUserPassword='iyyalna',
                         PubliclyAccessible=public_access,
-                        MultiAZ=multi_az
+                        MultiAZ=multi_az,
+                        DBSubnetGroupName=subnet_grp
 
                     )
 
