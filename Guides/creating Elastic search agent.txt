@@ -1,0 +1,44 @@
+[cloud_user@ip-10-0-1-85 ~]$ wget https://s3.amazonaws.com/amazoncloudwatch-agent/linux/amd64/latest/AmazonCloudWatchAgent.zip
+
+[cloud_user@ip-10-0-1-85 ~]$ unzip AmazonCloudWatchAgent.zip
+
+[cloud_user@ip-10-0-1-85 ~]$ sudo ./install.sh
+
+[cloud_user@ip-10-0-1-85 ~]$ sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-config-wizard
+.
+.
+.
+.
+After few default steps:
+Do you want to monitor any log files?
+1. yes
+2. no
+default choice: [1]:
+    
+Log file path:
+/var/log/secure
+Log group name:
+default choice: [secure]
+
+Log stream name:
+default choice: [{instance_id}]
+
+Do you want to specify any additional log files to monitor?
+1. yes
+2. no
+default choice: [1]:
+
+Log file path:
+/var/log/messages
+Log group name:
+default choice: [messages]
+
+Log stream name:
+default choice: [{instance_id}]
+
+[cloud_user@ip-10-0-1-85 ~]$ sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -c file:/opt/aws/amazon-cloudwatch-agent/bin/config.json -s
+
+If process is not initiated run below command
+Run [cloud_user@ip-10-0-1-85 ~]$ yum update && yum install collectd
+
+
